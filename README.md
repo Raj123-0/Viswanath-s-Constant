@@ -1,15 +1,51 @@
-===============================================================================
-PROJECT: Viswanath's Constant Computation Engine
-===============================================================================
+# Viswanath S Constant
 
-OVERVIEW:
-Calculates Viswanath's Constant (K ≈ 1.13198824...) to N significant digits. 
-Viswanath's constant describes the exponential growth rate of a random 
-Fibonacci sequence, where terms are added or subtracted with equal probability 1/2.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![CI](https://github.com/Raj123-0/Viswanath-s-Constant/actions/workflows/ci.yml/badge.svg)](https://github.com/Raj123-0/Viswanath-s-Constant/actions)
 
-ALGORITHM & IMPLEMENTATION:
-- Flattened DFS with Memoization: Evaluates logarithmic sum of vector norms over 
-  a random tree DAG using state-vector reduction (f_n, f_{n-1}).
-- Algebraic Symmetry Pruning: Canonicalizes state vectors (forcing u >= 0) to 
-  prune duplicate matrix trajectories.
-- Multi-Core Work Distribution: Parallelizes subtree traversals across worker processes.
+
+High-precision mathematical computation and OEIS digit generator for Viswanath S Constant.
+
+## Overview
+
+`Viswanath-s-Constant` implements high-precision evaluation of the **Viswanath S Constant** using arbitrary-precision mathematical routines (`mpmath` and C-accelerated `gmpy2`). The engine generates exact decimal digits, formats standard OEIS b-file sequences, and includes an automated performance benchmark.
+
+## Features
+
+- **Arbitrary-Precision Calculation**: Configurable digit targets with optimized guard precision.
+- **OEIS b-file Output**: Generates 1-based index sequence files ready for OEIS submission.
+- **Performance Profiling**: Built-in benchmark suite to evaluate digits/sec scaling.
+- **Robust CLI**: Easy command-line interface with argument parsing.
+
+## Installation
+
+```bash
+git clone https://github.com/Raj123-0/Viswanath-s-Constant.git
+cd Viswanath-s-Constant
+pip install -r requirements.txt
+```
+
+## Usage
+
+Calculate digits with the CLI:
+
+```bash
+python "Viswanath's Constant.py" --digits 1000
+```
+
+Run precision benchmarks:
+
+```bash
+python benchmarks/bench_precision.py
+```
+
+Run automated tests:
+
+```bash
+pytest tests/
+```
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
