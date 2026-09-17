@@ -24,15 +24,16 @@ Precision & Memory Management:
 - dps buffer is strictly maintained at N + 50 to eliminate hardware rounding.
 """
 
-import os
-import sys
 import gc
 import multiprocessing
-import gmpy2
+import sys
+
 from mpmath import mp
+import gmpy2
 
 # Enforce exactly 12 CPU cores as per architecture constraints
 NUM_WORKERS = 12
+
 
 def compute_subtree_log_sum(prefix_u, prefix_v, remaining_depth, dps):
     """
@@ -120,13 +121,16 @@ def compute_subtree_log_sum(prefix_u, prefix_v, remaining_depth, dps):
     
     return chunk_log_sum
 
+
 def generate_oeis_bfile(digits_str, n_digits, filename="b078416.txt"):
     """
     Generates a standard OEIS b-file (index and digit separated by space).
     """
     with open(filename, 'w') as f:
-        for i, digit in enumerate(digits_str[:n_digits]):
+        for i, digit in enumerate(digits_str[:
+            n_digits]):
             f.write(f"{i+1} {digit}\n")
+
 
 def calculate_viswanaths_constant(n_digits: int):
     """
